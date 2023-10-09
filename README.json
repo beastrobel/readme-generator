@@ -1,21 +1,21 @@
 {
- "title": "Project",
- "description": "Something",
- "toc": "TOC",
- "installation": "instructions",
- "usage": "usage",
+ "title": "Project title here",
+ "description": "Description here",
+ "toc": "N/A",
+ "installation": "Installation instructions here",
+ "usage": "Usage information here",
  "license": [
   "MIT License",
   "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]",
   "https://api.github.com/licenses/mit"
  ],
- "contributing": "Just me",
- "tests": "Test 1",
- "username": "beastrobel",
- "email": "beatrizstrobel@proton.me",
+ "contributing": "Contributors here",
+ "tests": "Tests here",
+ "username": "Username here",
+ "email": "Email address here",
  "questions": [
   "Email",
-  "https://github.com/beastrobel",
-  "beatrizstrobel@proton.me"
+  "https://github.com/Username here",
+  "Email address here"
  ]
 }
