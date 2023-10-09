@@ -1,21 +1,21 @@
 {
- "title": "gdas",
- "description": "gdas",
- "toc": "gdsa",
- "installation": "gdas",
- "usage": "gdas",
+ "title": "Project",
+ "description": "Something",
+ "toc": "TOC",
+ "installation": "instructions",
+ "usage": "usage",
  "license": [
   "MIT License",
   "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]",
   "https://api.github.com/licenses/mit"
  ],
- "contributing": "gda",
- "tests": "gdas",
- "username": "gdas",
- "email": "gdsa",
+ "contributing": "Just me",
+ "tests": "Test 1",
+ "username": "beastrobel",
+ "email": "beatrizstrobel@proton.me",
  "questions": [
   "Email",
-  "https://github.com/gdas",
-  "gdsa"
+  "https://github.com/beastrobel",
+  "beatrizstrobel@proton.me"
  ]
 }
