@@ -1,21 +1,21 @@
 {
- "title": "Project title here",
- "description": "Description here",
+ "title": "Project Title",
+ "description": "Description",
  "toc": "N/A",
- "installation": "Installation instructions here",
- "usage": "Usage information here",
+ "installation": "Installation instructions",
+ "usage": "Usage information",
  "license": [
   "MIT License",
   "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]",
   "https://api.github.com/licenses/mit"
  ],
- "contributing": "Contributors here",
- "tests": "Tests here",
- "username": "Username here",
- "email": "Email address here",
+ "contributing": "Contributors",
+ "tests": "Tests",
+ "username": "Username",
+ "email": "Email",
  "questions": [
   "Email",
-  "https://github.com/Username here",
-  "Email address here"
+  "https://github.com/Username",
+  "Email"
  ]
 }
