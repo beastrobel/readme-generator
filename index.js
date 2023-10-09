@@ -1,5 +1,6 @@
 //Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 //Create an array of questions for user input
 const questions = [];
@@ -35,7 +36,7 @@ inquirer
         type: 'checkbox',
         message: 'Select a license:',
         name: 'license',
-        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause Simplified License', 'BSD3-Clause New or Revised License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0', 'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unilicense']
+        choices: ['MIT License', 'IBM Public License', 'Mozilla Public License']
     },
     {
         type: 'input',
@@ -63,15 +64,21 @@ inquirer
         name: 'contact',
     },
   ])
-  .then((response) =>
-    console.log(response)
-  );
+  .then((data) => {
+
+    //Adds values to questions array
+    questions.push('https://github.com/' + data.username, data.email, data.contact);
+
+    //Replaces username, email, and contact with questions array
+    const dataArray = [data];
+    dataArray['questions'] = questions;
+    delete dataArray[0].username
+    delete dataArray[0].email
+    delete dataArray[0].contact
+    console.log(dataArray);
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+    fs.writeFile('README.md', JSON.stringify(dataArray, null, '/t'), (err) =>
+    err ? console.log(err) : console.log('Success!'))
+  }
+);
