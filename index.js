@@ -4,6 +4,7 @@ const fs = require('fs');
 
 //Create an array of questions for user input
 const questions = [];
+const license = [];
 
 inquirer
   .prompt([
@@ -36,7 +37,7 @@ inquirer
         type: 'checkbox',
         message: 'Select a license:',
         name: 'license',
-        choices: ['MIT License', 'IBM Public License', 'Mozilla Public License']
+        choices: ['MIT License', 'Unilicense', 'Mozilla Public License']
     },
     {
         type: 'input',
@@ -59,26 +60,34 @@ inquirer
         name: 'email',
     },
     {
-        type: 'input',
-        message: 'Input contact instructions:',
-        name: 'contact',
+        type: 'checkbox',
+        message: 'Select contact instructions:',
+        name: 'questions',
+        choices: ['Email', 'Phone']
     },
   ])
   .then((data) => {
 
     //Adds values to questions array
-    questions.push('https://github.com/' + data.username, data.email, data.contact);
+    data.questions[1] = ('username:', 'https://github.com/' + data.username);
+    data.questions[2] = ('email:', data.email);
 
-    //Replaces username, email, and contact with questions array
-    const dataArray = [data];
-    dataArray['questions'] = questions;
-    delete dataArray[0].username
-    delete dataArray[0].email
-    delete dataArray[0].contact
-    console.log(dataArray);
+    //Adds values to license array
+        if (data.license == 'MIT License'){
+            data.license[1] = ('badge:', '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]');
+            data.license[2] = ('link:', 'https://api.github.com/licenses/mit');
+        } else if (data.license == 'Unilicense') {
+            data.license[1] = ('badge:', '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)');
+            data.license[2] = ('link:', 'https://api.github.com/licenses/unlicense');
+        } else if (data.license == 'Mozilla Public License') {
+            data.license[1] = ('badge:', '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)');
+            data.license[2] = ('link:', 'https://api.github.com/licenses/mpl-2.0');
+        } else {
+        console.log ('no license selected');
+        }
+        console.log (data);
 
 // TODO: Create a function to write README file
-    fs.writeFile('README.md', JSON.stringify(dataArray, null, '/t'), (err) =>
+    fs.writeFile('README.json', JSON.stringify(data, null, ' '), (err) =>
     err ? console.log(err) : console.log('Success!'))
-  }
-);
+});
